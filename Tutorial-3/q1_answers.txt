@@ -1,0 +1,100 @@
+Question 1: Analysis of Three OpenMP Code Variants
+====================================================
+
+The three code pieces all attempt to parallelize the following update:
+
+    v[indices[i]] += f(i);
+
+where `indices[]` may map multiple values of `i` to the same element of `v[]`.
+
+------------------------------------------------------------------------
+CODE 1: No Synchronization (RACE CONDITION — INCORRECT)
+------------------------------------------------------------------------
+
+    #pragma omp parallel for default(none) shared(v, indices, n)
+    for (i = 0; i < n; i++)
+        v[indices[i]] += f(i);
+
+Analysis:
+- This code has a DATA RACE. The operation v[indices[i]] += f(i) is a
+  read-modify-write sequence (load v[indices[i]], add f(i), store back).
+- When two threads have the same value of indices[i], they may simultaneously:
+  1. Both read the same old value of v[k]
+  2. Both compute their additions independently
+  3. Both write back — the second write overwrites the first
+- Result: One or more updates are LOST. The final answer is wrong and
+  non-deterministic (varies between runs).
+- This violates OpenMP's rule: concurrent writes to the same memory location
+  without synchronization produce undefined behavior.
+
+------------------------------------------------------------------------
+CODE 2: Critical Section (CORRECT but SERIALIZED)
+------------------------------------------------------------------------
+
+    #pragma omp parallel for default(none) shared(v, indices, n)
+    for (i = 0; i < n; i++) {
+        #pragma omp critical
+        v[indices[i]] += f(i);
+    }
+
+Analysis:
+- CORRECT: The `#pragma omp critical` ensures mutual exclusion — only one
+  thread executes the update at a time. No race condition.
+- POOR PERFORMANCE: The critical section serializes ALL updates, even when
+  threads access different elements of v[]. Every iteration acquires and
+  releases a global lock.
+- The lock overhead (typically a mutex) adds significant cost per iteration.
+- For large n, this may be SLOWER than the serial version because:
+  (a) Lock acquisition/release overhead on every iteration
+  (b) No actual parallel computation of the updates
+  (c) Cache coherence traffic from the shared lock variable
+- The only parallelism that remains is the concurrent computation of f(i),
+  but the store is fully serial.
+
+------------------------------------------------------------------------
+CODE 3: Atomic Update (CORRECT and EFFICIENT)
+------------------------------------------------------------------------
+
+    #pragma omp parallel for default(none) shared(v, indices, n)
+    for (i = 0; i < n; i++) {
+        #pragma omp atomic
+        v[indices[i]] += f(i);
+    }
+
+Analysis:
+- CORRECT: The `#pragma omp atomic` ensures the read-modify-write of
+  v[indices[i]] is performed as an indivisible operation.
+- MUCH BETTER PERFORMANCE than critical because:
+  (a) Atomic operations on DIFFERENT memory addresses proceed in parallel.
+      Only updates to the SAME address are serialized.
+  (b) Hardware atomic instructions (e.g., lock cmpxchg on x86) have much
+      lower overhead than mutex-based critical sections.
+  (c) No global lock contention — threads only contend when they actually
+      access the same array element.
+- The degree of parallelism depends on the collision rate in indices[]:
+  - If indices[] has few collisions → nearly full parallel speedup
+  - If indices[] maps everything to one element → still serialized, but
+    with lower overhead than critical
+
+------------------------------------------------------------------------
+COMPARISON SUMMARY
+------------------------------------------------------------------------
+
+| Aspect         | Code 1 (none)  | Code 2 (critical) | Code 3 (atomic) |
+|----------------|----------------|--------------------|-----------------|
+| Correctness    | WRONG (race)   | CORRECT            | CORRECT         |
+| Parallelism    | Full (but bad) | None (serialized)  | High            |
+| Overhead/iter  | None           | High (mutex)       | Low (hardware)  |
+| Scalability    | N/A            | Poor               | Good            |
+| Best for       | Nothing        | Complex operations | Simple ops (+=) |
+
+CONCLUSION:
+Code 3 (atomic) is the best choice for this pattern. It is correct and
+allows maximum concurrency. Code 2 (critical) is correct but inefficient.
+Code 1 is simply wrong.
+
+Alternative approaches:
+- Array reduction (OpenMP 4.5+ with user-defined reduction or manual
+  per-thread private copies merged after the loop) could eliminate all
+  contention but uses O(threads × V_SIZE) extra memory.
+- For very high collision rates, reduction may outperform atomic.

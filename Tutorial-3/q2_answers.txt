@@ -1,0 +1,146 @@
+Question 2: OpenMP Scheduling Analysis
+========================================
+
+Given code:
+
+    #pragma omp parallel
+    {
+        #pragma omp for schedule(static)
+        for (i = 1; i < m; i++) f(i);     // Loop 1
+
+        #pragma omp for schedule(static)
+        for (i = 1; i < m; i++) f(m-i);   // Loop 2
+    }
+
+where f(i) takes i milliseconds to execute.
+Assume 2 threads and m is even (for simplicity, let m = 2k).
+Total iterations: i = 1, 2, ..., m-1  (that is, m-1 iterations).
+
+========================================================================
+Part (a): schedule(static) with default chunk size (contiguous blocks)
+========================================================================
+
+With schedule(static) and 2 threads, iterations are split into 2 contiguous
+blocks of roughly equal size:
+
+  Thread 0 gets iterations: 1, 2, ..., (m-1)/2      ≈ 1 to m/2
+  Thread 1 gets iterations: (m-1)/2+1, ..., m-1      ≈ m/2+1 to m-1
+
+--- Loop 1: f(i) takes i ms ---
+
+  Thread 0 time = sum(i=1 to m/2) = m/2 * (m/2 + 1) / 2 ≈ m²/8
+  Thread 1 time = sum(i=m/2+1 to m-1) ≈ m²/8 * 3        ≈ 3m²/8
+
+  Thread 0 finishes FIRST and waits at the implicit barrier.
+  Thread 0 wait time ≈ 3m²/8 - m²/8 = 2m²/8 = m²/4
+
+--- Loop 2: f(m-i) takes (m-i) ms ---
+
+  When i goes from 1 to m-1, the cost f(m-i) = m-i, so:
+    i=1 costs m-1, i=2 costs m-2, ..., i=m-1 costs 1
+
+  Thread 0 gets i=1..m/2, so costs: (m-1) + (m-2) + ... + (m - m/2)
+         = sum of (m/2) to (m-1) ≈ 3m²/8
+
+  Thread 1 gets i=m/2+1..m-1, so costs: (m - m/2 - 1) + ... + 1
+         = sum of 1 to (m/2 - 1) ≈ m²/8
+
+  Thread 1 finishes FIRST and waits.
+  Thread 1 wait time ≈ 3m²/8 - m²/8 = m²/4
+
+--- Total time with schedule(static) ---
+
+  Loop 1 time = max(m²/8, 3m²/8) = 3m²/8
+  Loop 2 time = max(3m²/8, m²/8) = 3m²/8
+  Total parallel time ≈ 3m²/4
+
+  Serial time = sum(1..m-1) + sum(1..m-1) = 2 × m(m-1)/2 = m(m-1) ≈ m²
+  Speedup ≈ m² / (3m²/4) = 4/3 ≈ 1.33
+
+  This is poor because the load is imbalanced: in each loop, one thread
+  does 3x the work of the other, and the fast thread wastes time waiting
+  at the barrier.
+
+  Total wait time across both loops: m²/4 + m²/4 = m²/2
+  (That is half the serial work wasted in idle waiting!)
+
+========================================================================
+Part (b): schedule(static,1) and schedule(dynamic,1)
+========================================================================
+
+--- schedule(static, 1): Round-Robin ---
+
+  Iterations are assigned in round-robin: Thread 0 gets i=1,3,5,...
+  Thread 1 gets i=2,4,6,...
+
+  Loop 1: f(i) takes i ms
+    Thread 0: f(1)+f(3)+f(5)+... = sum of odd numbers 1 to m-1
+    Thread 1: f(2)+f(4)+f(6)+... = sum of even numbers 2 to m-1
+    These sums are very close: each ≈ m²/4
+    Load imbalance is minimal (difference ≈ m/2)
+
+  Loop 2: f(m-i) takes (m-i) ms
+    Similarly, interleaved assignment distributes work nearly equally.
+
+  Total parallel time ≈ m²/4 + m²/4 = m²/2
+  Speedup ≈ m² / (m²/2) = 2.0  (nearly perfect for 2 threads!)
+
+  schedule(static,1) is excellent here because the interleaving naturally
+  balances the linearly increasing/decreasing workloads.
+
+--- schedule(dynamic, 1): Dynamic Assignment ---
+
+  Each thread dynamically grabs the next available iteration.
+  This achieves near-perfect load balancing regardless of the work
+  distribution, since a thread that finishes a cheap iteration quickly
+  picks up the next one.
+
+  Performance ≈ similar to static,1 for this workload pattern.
+
+  However, dynamic scheduling has HIGHER OVERHEAD because:
+    - Every iteration requires atomic access to a shared counter
+    - More cache coherence traffic
+    - For very small f(i), the overhead may exceed the benefit
+
+  For this particular workload (linearly varying cost), schedule(static,1)
+  achieves nearly the same balance as dynamic,1 with less overhead.
+  Dynamic is more useful when iteration costs are unpredictable.
+
+========================================================================
+Part (c): The nowait clause
+========================================================================
+
+The `nowait` clause eliminates the implicit barrier at the end of a
+worksharing construct (like `omp for`).
+
+Default behavior (without nowait):
+    - After Loop 1 completes, ALL threads must reach the implicit barrier
+      before ANY thread can proceed to Loop 2.
+    - If Thread 0 finishes Loop 1 early, it sits idle until Thread 1
+      finishes Loop 1.
+
+With nowait on Loop 1:
+    #pragma omp for schedule(static) nowait
+    for (i = 1; i < m; i++) f(i);
+
+    #pragma omp for schedule(static)
+    for (i = 1; i < m; i++) f(m-i);
+
+    - Thread 0, upon finishing its share of Loop 1, immediately proceeds
+      to Loop 2 without waiting for Thread 1.
+    - This can overlap work: Thread 0 starts Loop 2 iterations while
+      Thread 1 is still finishing Loop 1.
+
+For the schedule(static) case with our workload:
+    - In Loop 1, Thread 0 (light iterations 1..m/2) finishes ≈ m²/8 ms
+      early and can begin Loop 2 immediately.
+    - Thread 1 finishes Loop 1 at ≈ 3m²/8 and starts Loop 2.
+    - This saves up to m²/4 ms of idle time at the barrier.
+
+    However, with static scheduling the iteration assignment for Loop 2
+    is the same regardless of when each thread arrives, so the benefit
+    is limited to eliminating barrier wait time between the two loops.
+
+CAUTION: nowait requires that Loop 2 does not depend on Loop 1's results
+from other threads. Here the two loops are independent (both write to
+the return value of f() which is discarded), so nowait is safe.
