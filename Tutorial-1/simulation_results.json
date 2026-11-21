@@ -1,0 +1,617 @@
+{
+  "mesh88_uniform": [
+    {
+      "pkt_lat": 47.4236,
+      "net_lat": 47.0463,
+      "flit_lat": 27.3154,
+      "hops": 6.22917,
+      "inj_pkt_rate": 0.000964286,
+      "acc_pkt_rate": 0.000950893,
+      "inj_flit_rate": 0.019221,
+      "acc_flit_rate": 0.0191473,
+      "offered_load": 0.001
+    },
+    {
+      "pkt_lat": 49.1242,
+      "net_lat": 48.6067,
+      "flit_lat": 28.2571,
+      "hops": 6.26592,
+      "inj_pkt_rate": 0.0019625,
+      "acc_pkt_rate": 0.00197188,
+      "inj_flit_rate": 0.0392812,
+      "acc_flit_rate": 0.0393031,
+      "offered_load": 0.002
+    },
+    {
+      "pkt_lat": 52.7315,
+      "net_lat": 51.9413,
+      "flit_lat": 29.6867,
+      "hops": 6.19212,
+      "inj_pkt_rate": 0.0038875,
+      "acc_pkt_rate": 0.00390312,
+      "inj_flit_rate": 0.0776188,
+      "acc_flit_rate": 0.0779719,
+      "offered_load": 0.004
+    },
+    {
+      "pkt_lat": 57.3413,
+      "net_lat": 56.0061,
+      "flit_lat": 31.7348,
+      "hops": 6.24065,
+      "inj_pkt_rate": 0.00573828,
+      "acc_pkt_rate": 0.00572656,
+      "inj_flit_rate": 0.114512,
+      "acc_flit_rate": 0.114535,
+      "offered_load": 0.006
+    },
+    {
+      "pkt_lat": 62.8572,
+      "net_lat": 60.6849,
+      "flit_lat": 34.004,
+      "hops": 6.3233,
+      "inj_pkt_rate": 0.00766016,
+      "acc_pkt_rate": 0.0076875,
+      "inj_flit_rate": 0.153125,
+      "acc_flit_rate": 0.153473,
+      "offered_load": 0.008
+    },
+    {
+      "pkt_lat": 72.3846,
+      "net_lat": 68.7924,
+      "flit_lat": 37.9654,
+      "hops": 6.37033,
+      "inj_pkt_rate": 0.00980078,
+      "acc_pkt_rate": 0.00980859,
+      "inj_flit_rate": 0.195961,
+      "acc_flit_rate": 0.195961,
+      "offered_load": 0.01
+    },
+    {
+      "pkt_lat": 76.4308,
+      "net_lat": 72.1504,
+      "flit_lat": 39.3672,
+      "hops": 6.22098,
+      "inj_pkt_rate": 0.0116458,
+      "acc_pkt_rate": 0.0117188,
+      "inj_flit_rate": 0.232781,
+      "acc_flit_rate": 0.233604,
+      "offered_load": 0.012
+    },
+    {
+      "pkt_lat": 83.5514,
+      "net_lat": 77.9807,
+      "flit_lat": 42.6976,
+      "hops": 6.30312,
+      "inj_pkt_rate": 0.0127148,
+      "acc_pkt_rate": 0.0127383,
+      "inj_flit_rate": 0.254133,
+      "acc_flit_rate": 0.254652,
+      "offered_load": 0.013
+    },
+    {
+      "pkt_lat": 87.0083,
+      "net_lat": 80.7507,
+      "flit_lat": 43.919,
+      "hops": 6.26838,
+      "inj_pkt_rate": 0.0136797,
+      "acc_pkt_rate": 0.0137227,
+      "inj_flit_rate": 0.273363,
+      "acc_flit_rate": 0.27434,
+      "offered_load": 0.014
+    },
+    {
+      "pkt_lat": 95.6554,
+      "net_lat": 87.7094,
+      "flit_lat": 47.3946,
+      "hops": 6.2619,
+      "inj_pkt_rate": 0.0146836,
+      "acc_pkt_rate": 0.0146211,
+      "inj_flit_rate": 0.293492,
+      "acc_flit_rate": 0.293484,
+      "offered_load": 0.015
+    },
+    {
+      "pkt_lat": 107.303,
+      "net_lat": 96.3789,
+      "flit_lat": 52.4365,
+      "hops": 6.26569,
+      "inj_pkt_rate": 0.0157539,
+      "acc_pkt_rate": 0.0157578,
+      "inj_flit_rate": 0.315152,
+      "acc_flit_rate": 0.314918,
+      "offered_load": 0.016
+    }
+  ],
+  "mesh88_transpose": [
+    {
+      "pkt_lat": 46.7477,
+      "net_lat": 46.3889,
+      "flit_lat": 26.8264,
+      "hops": 6.11111,
+      "inj_pkt_rate": 0.000964286,
+      "acc_pkt_rate": 0.000953125,
+      "inj_flit_rate": 0.0192121,
+      "acc_flit_rate": 0.0191562,
+      "offered_load": 0.001
+    },
+    {
+      "pkt_lat": 48.0048,
+      "net_lat": 47.4522,
+      "flit_lat": 27.3951,
+      "hops": 6.12102,
+      "inj_pkt_rate": 0.0019625,
+      "acc_pkt_rate": 0.0019625,
+      "inj_flit_rate": 0.0392812,
+      "acc_flit_rate": 0.03935,
+      "offered_load": 0.002
+    },
+    {
+      "pkt_lat": 52.6463,
+      "net_lat": 51.9169,
+      "flit_lat": 29.6854,
+      "hops": 6.28912,
+      "inj_pkt_rate": 0.00294271,
+      "acc_pkt_rate": 0.00294271,
+      "inj_flit_rate": 0.0588099,
+      "acc_flit_rate": 0.058875,
+      "offered_load": 0.003
+    },
+    {
+      "pkt_lat": 55.9598,
+      "net_lat": 54.9598,
+      "flit_lat": 30.9969,
+      "hops": 6.15273,
+      "inj_pkt_rate": 0.0038875,
+      "acc_pkt_rate": 0.00391562,
+      "inj_flit_rate": 0.0776562,
+      "acc_flit_rate": 0.0782125,
+      "offered_load": 0.004
+    },
+    {
+      "pkt_lat": 62.828,
+      "net_lat": 61.2175,
+      "flit_lat": 33.7082,
+      "hops": 6.08685,
+      "inj_pkt_rate": 0.00472266,
+      "acc_pkt_rate": 0.00475,
+      "inj_flit_rate": 0.0943047,
+      "acc_flit_rate": 0.0945742,
+      "offered_load": 0.005
+    },
+    {
+      "pkt_lat": 72.8325,
+      "net_lat": 71.098,
+      "flit_lat": 39.0413,
+      "hops": 6.24424,
+      "inj_pkt_rate": 0.00576823,
+      "acc_pkt_rate": 0.00577083,
+      "inj_flit_rate": 0.115357,
+      "acc_flit_rate": 0.115292,
+      "offered_load": 0.006
+    },
+    {
+      "pkt_lat": 133.808,
+      "net_lat": 110.926,
+      "flit_lat": 66.7604,
+      "hops": 6.15945,
+      "inj_pkt_rate": 0.00676875,
+      "acc_pkt_rate": 0.0067875,
+      "inj_flit_rate": 0.135619,
+      "acc_flit_rate": 0.135878,
+      "offered_load": 0.007
+    },
+    {
+      "pkt_lat": 179.458,
+      "net_lat": 133.42,
+      "flit_lat": 76.7891,
+      "hops": 6.31825,
+      "inj_pkt_rate": 0.00703125,
+      "acc_pkt_rate": 0.00710417,
+      "inj_flit_rate": 0.140995,
+      "acc_flit_rate": 0.141781,
+      "offered_load": 0.0075
+    },
+    {
+      "pkt_lat": 323.009,
+      "net_lat": 156.289,
+      "flit_lat": 101.847,
+      "hops": 6.25532,
+      "inj_pkt_rate": 0.0075558,
+      "acc_pkt_rate": 0.00759598,
+      "inj_flit_rate": 0.151147,
+      "acc_flit_rate": 0.151629,
+      "offered_load": 0.008
+    },
+    {
+      "pkt_lat": 89.4752,
+      "net_lat": 85.6818,
+      "flit_lat": 48.7387,
+      "hops": null,
+      "inj_pkt_rate": 0.0085625,
+      "acc_pkt_rate": 0.0075625,
+      "inj_flit_rate": 0.168547,
+      "acc_flit_rate": 0.165179,
+      "offered_load": 0.009
+    },
+    {
+      "pkt_lat": 124.734,
+      "net_lat": 115.64,
+      "flit_lat": 64.8964,
+      "hops": null,
+      "inj_pkt_rate": 0.00928125,
+      "acc_pkt_rate": 0.00798438,
+      "inj_flit_rate": 0.183188,
+      "acc_flit_rate": 0.181812,
+      "offered_load": 0.01
+    }
+  ],
+  "torus88_uniform": [
+    {
+      "pkt_lat": 31.3806,
+      "net_lat": 31.3806,
+      "flit_lat": 31.4157,
+      "hops": 5.03236,
+      "inj_pkt_rate": 0.0196354,
+      "acc_pkt_rate": 0.0196771,
+      "inj_flit_rate": 0.0196354,
+      "acc_flit_rate": 0.0196771,
+      "offered_load": 0.02
+    },
+    {
+      "pkt_lat": 31.5091,
+      "net_lat": 31.5091,
+      "flit_lat": 31.5401,
+      "hops": 4.99629,
+      "inj_pkt_rate": 0.0505,
+      "acc_pkt_rate": 0.0505677,
+      "inj_flit_rate": 0.0505,
+      "acc_flit_rate": 0.0505677,
+      "offered_load": 0.05
+    },
+    {
+      "pkt_lat": 31.9702,
+      "net_lat": 31.9702,
+      "flit_lat": 31.9911,
+      "hops": 5.00339,
+      "inj_pkt_rate": 0.0798281,
+      "acc_pkt_rate": 0.0799427,
+      "inj_flit_rate": 0.0798281,
+      "acc_flit_rate": 0.0799427,
+      "offered_load": 0.08
+    },
+    {
+      "pkt_lat": 32.8925,
+      "net_lat": 32.8925,
+      "flit_lat": 32.9284,
+      "hops": 5.01681,
+      "inj_pkt_rate": 0.119911,
+      "acc_pkt_rate": 0.12001,
+      "inj_flit_rate": 0.119911,
+      "acc_flit_rate": 0.12001,
+      "offered_load": 0.12
+    },
+    {
+      "pkt_lat": 33.9649,
+      "net_lat": 33.9649,
+      "flit_lat": 34.0035,
+      "hops": 4.99119,
+      "inj_pkt_rate": 0.160193,
+      "acc_pkt_rate": 0.160307,
+      "inj_flit_rate": 0.160193,
+      "acc_flit_rate": 0.160307,
+      "offered_load": 0.16
+    },
+    {
+      "pkt_lat": 36.16,
+      "net_lat": 36.16,
+      "flit_lat": 36.1758,
+      "hops": 5.00942,
+      "inj_pkt_rate": 0.200182,
+      "acc_pkt_rate": 0.200078,
+      "inj_flit_rate": 0.200182,
+      "acc_flit_rate": 0.200078,
+      "offered_load": 0.2
+    },
+    {
+      "pkt_lat": 41.1716,
+      "net_lat": 41.1716,
+      "flit_lat": 41.2005,
+      "hops": 5.00808,
+      "inj_pkt_rate": 0.239651,
+      "acc_pkt_rate": 0.239714,
+      "inj_flit_rate": 0.239651,
+      "acc_flit_rate": 0.239714,
+      "offered_load": 0.24
+    },
+    {
+      "pkt_lat": 56.9376,
+      "net_lat": 53.8331,
+      "flit_lat": 53.8403,
+      "hops": 4.99705,
+      "inj_pkt_rate": 0.259984,
+      "acc_pkt_rate": 0.260359,
+      "inj_flit_rate": 0.259984,
+      "acc_flit_rate": 0.260359,
+      "offered_load": 0.26
+    },
+    {
+      "pkt_lat": 492.498,
+      "net_lat": 101.566,
+      "flit_lat": 100.184,
+      "hops": 5.00592,
+      "inj_pkt_rate": 0.259598,
+      "acc_pkt_rate": 0.259069,
+      "inj_flit_rate": 0.259598,
+      "acc_flit_rate": 0.259069,
+      "offered_load": 0.28
+    },
+    {
+      "pkt_lat": 78.3117,
+      "net_lat": 71.3897,
+      "flit_lat": 71.3897,
+      "hops": null,
+      "inj_pkt_rate": 0.277422,
+      "acc_pkt_rate": 0.252297,
+      "inj_flit_rate": 0.277422,
+      "acc_flit_rate": 0.252367,
+      "offered_load": 0.3
+    },
+    {
+      "pkt_lat": 135.131,
+      "net_lat": 99.4367,
+      "flit_lat": 99.4367,
+      "hops": null,
+      "inj_pkt_rate": 0.256563,
+      "acc_pkt_rate": 0.227531,
+      "inj_flit_rate": 0.256563,
+      "acc_flit_rate": 0.210297,
+      "offered_load": 0.35
+    }
+  ],
+  "torus88_transpose": [
+    {
+      "pkt_lat": 31.3599,
+      "net_lat": 31.3599,
+      "flit_lat": 31.4595,
+      "hops": 5.00849,
+      "inj_pkt_rate": 0.0196354,
+      "acc_pkt_rate": 0.0197188,
+      "inj_flit_rate": 0.0196354,
+      "acc_flit_rate": 0.0197188,
+      "offered_load": 0.02
+    },
+    {
+      "pkt_lat": 32.5265,
+      "net_lat": 32.5265,
+      "flit_lat": 32.5823,
+      "hops": 5.0163,
+      "inj_pkt_rate": 0.0505,
+      "acc_pkt_rate": 0.0505885,
+      "inj_flit_rate": 0.0505,
+      "acc_flit_rate": 0.0505885,
+      "offered_load": 0.05
+    },
+    {
+      "pkt_lat": 37.9811,
+      "net_lat": 37.9811,
+      "flit_lat": 38.0677,
+      "hops": 4.99687,
+      "inj_pkt_rate": 0.0798281,
+      "acc_pkt_rate": 0.0799688,
+      "inj_flit_rate": 0.0798281,
+      "acc_flit_rate": 0.0799688,
+      "offered_load": 0.08
+    },
+    {
+      "pkt_lat": 76.4188,
+      "net_lat": 75.5707,
+      "flit_lat": 75.5707,
+      "hops": null,
+      "inj_pkt_rate": 0.111219,
+      "acc_pkt_rate": 0.0983906,
+      "inj_flit_rate": 0.111219,
+      "acc_flit_rate": 0.101184,
+      "offered_load": 0.12
+    },
+    {
+      "pkt_lat": 97.4827,
+      "net_lat": 93.1701,
+      "flit_lat": 93.1701,
+      "hops": null,
+      "inj_pkt_rate": 0.122531,
+      "acc_pkt_rate": 0.10575,
+      "inj_flit_rate": 0.122531,
+      "acc_flit_rate": 0.109609,
+      "offered_load": 0.15
+    },
+    {
+      "pkt_lat": 111.148,
+      "net_lat": 99.6068,
+      "flit_lat": 99.6068,
+      "hops": null,
+      "inj_pkt_rate": 0.131641,
+      "acc_pkt_rate": 0.113578,
+      "inj_flit_rate": 0.131641,
+      "acc_flit_rate": 0.117734,
+      "offered_load": 0.18
+    },
+    {
+      "pkt_lat": 115.937,
+      "net_lat": 102.147,
+      "flit_lat": 102.147,
+      "hops": null,
+      "inj_pkt_rate": 0.134359,
+      "acc_pkt_rate": 0.116094,
+      "inj_flit_rate": 0.134359,
+      "acc_flit_rate": 0.120344,
+      "offered_load": 0.2
+    },
+    {
+      "pkt_lat": 114.828,
+      "net_lat": 100.18,
+      "flit_lat": 100.18,
+      "hops": null,
+      "inj_pkt_rate": 0.140172,
+      "acc_pkt_rate": 0.120906,
+      "inj_flit_rate": 0.140172,
+      "acc_flit_rate": 0.123109,
+      "offered_load": 0.22
+    },
+    {
+      "pkt_lat": 128.381,
+      "net_lat": 106.261,
+      "flit_lat": 106.261,
+      "hops": null,
+      "inj_pkt_rate": 0.148187,
+      "acc_pkt_rate": 0.126578,
+      "inj_flit_rate": 0.148187,
+      "acc_flit_rate": 0.13,
+      "offered_load": 0.25
+    },
+    {
+      "pkt_lat": 145.469,
+      "net_lat": 109.055,
+      "flit_lat": 109.055,
+      "hops": null,
+      "inj_pkt_rate": 0.152578,
+      "acc_pkt_rate": 0.130938,
+      "inj_flit_rate": 0.152578,
+      "acc_flit_rate": 0.135109,
+      "offered_load": 0.28
+    },
+    {
+      "pkt_lat": 154.831,
+      "net_lat": 110.142,
+      "flit_lat": 110.142,
+      "hops": null,
+      "inj_pkt_rate": 0.157406,
+      "acc_pkt_rate": 0.135609,
+      "inj_flit_rate": 0.157406,
+      "acc_flit_rate": 0.138953,
+      "offered_load": 0.3
+    }
+  ],
+  "torus88_normalized_uniform": [
+    {
+      "pkt_lat": 48.8838,
+      "net_lat": 48.4029,
+      "flit_lat": 27.3257,
+      "hops": 4.96815,
+      "inj_pkt_rate": 0.0019625,
+      "acc_pkt_rate": 0.00196875,
+      "inj_flit_rate": 0.0392812,
+      "acc_flit_rate": 0.0393812,
+      "offered_load": 0.002
+    },
+    {
+      "pkt_lat": 53.0736,
+      "net_lat": 51.8544,
+      "flit_lat": 28.8223,
+      "hops": 4.95285,
+      "inj_pkt_rate": 0.00472266,
+      "acc_pkt_rate": 0.00474219,
+      "inj_flit_rate": 0.0943008,
+      "acc_flit_rate": 0.0945625,
+      "offered_load": 0.005
+    },
+    {
+      "pkt_lat": 57.474,
+      "net_lat": 55.3456,
+      "flit_lat": 30.696,
+      "hops": 4.97503,
+      "inj_pkt_rate": 0.00766016,
+      "acc_pkt_rate": 0.00770703,
+      "inj_flit_rate": 0.153188,
+      "acc_flit_rate": 0.153582,
+      "offered_load": 0.008
+    },
+    {
+      "pkt_lat": 65.9594,
+      "net_lat": 61.7022,
+      "flit_lat": 33.8863,
+      "hops": 5.03661,
+      "inj_pkt_rate": 0.0116458,
+      "acc_pkt_rate": 0.0116562,
+      "inj_flit_rate": 0.232703,
+      "acc_flit_rate": 0.233,
+      "offered_load": 0.012
+    },
+    {
+      "pkt_lat": 75.9798,
+      "net_lat": 68.9894,
+      "flit_lat": 37.4747,
+      "hops": 4.95955,
+      "inj_pkt_rate": 0.0156771,
+      "acc_pkt_rate": 0.0157448,
+      "inj_flit_rate": 0.313714,
+      "acc_flit_rate": 0.314682,
+      "offered_load": 0.016
+    },
+    {
+      "pkt_lat": 92.1006,
+      "net_lat": 78.3668,
+      "flit_lat": 42.4917,
+      "hops": 5.00977,
+      "inj_pkt_rate": 0.0196875,
+      "acc_pkt_rate": 0.0198281,
+      "inj_flit_rate": 0.394182,
+      "acc_flit_rate": 0.395672,
+      "offered_load": 0.02
+    },
+    {
+      "pkt_lat": 121.276,
+      "net_lat": 90.9874,
+      "flit_lat": 50.396,
+      "hops": 5.03156,
+      "inj_pkt_rate": 0.0237844,
+      "acc_pkt_rate": 0.0237531,
+      "inj_flit_rate": 0.4756,
+      "acc_flit_rate": 0.475381,
+      "offered_load": 0.024
+    },
+    {
+      "pkt_lat": 150.371,
+      "net_lat": 96.6986,
+      "flit_lat": 53.2202,
+      "hops": 5.00316,
+      "inj_pkt_rate": 0.0256484,
+      "acc_pkt_rate": 0.0256367,
+      "inj_flit_rate": 0.512355,
+      "acc_flit_rate": 0.512156,
+      "offered_load": 0.026
+    },
+    {
+      "pkt_lat": 231.813,
+      "net_lat": 105.472,
+      "flit_lat": 59.6079,
+      "hops": 4.9725,
+      "inj_pkt_rate": 0.0275885,
+      "acc_pkt_rate": 0.027599,
+      "inj_flit_rate": 0.552365,
+      "acc_flit_rate": 0.553063,
+      "offered_load": 0.028
+    },
+    {
+      "pkt_lat": 437.68,
+      "net_lat": 114.406,
+      "flit_lat": 66.0494,
+      "hops": 5.01351,
+      "inj_pkt_rate": 0.0291116,
+      "acc_pkt_rate": 0.029067,
+      "inj_flit_rate": 0.58192,
+      "acc_flit_rate": 0.581306,
+      "offered_load": 0.03
+    },
+    {
+      "pkt_lat": 156.189,
+      "net_lat": 98.0164,
+      "flit_lat": 53.9163,
+      "hops": null,
+      "inj_pkt_rate": 0.0277188,
+      "acc_pkt_rate": 0.02475,
+      "inj_flit_rate": 0.54725,
+      "acc_flit_rate": 0.591375,
+      "offered_load": 0.032
+    }
+  ]
+}
